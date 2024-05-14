@@ -23,6 +23,17 @@ def calc_method_two(k: T, g: T) -> tuple[T, T]:
     pass
 
 
+def calculate_all(
+    k: T, g: T
+) -> tuple[tuple[float, float], tuple[float, float]]:
+    """
+    Метод для расчётов сразу двух методов
+
+    :rtype: tuple[tuple[float, float], tuple[float, float]]
+    """
+    return calc_method_one(k, g), calc_method_two(k, g)
+
+
 if __name__ == "__main__":
     K = (12.5, 13.5, 15)
     g_input = int(input())
