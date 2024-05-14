@@ -1,4 +1,9 @@
-def calc_method_one(k: float, g: float) -> tuple[float, float]:
+from typing import TypeVar
+
+T = TypeVar("T", int, float)
+
+
+def calc_method_one(k: T, g: T) -> tuple[T, T]:
     """
     Как называется этот метод?
 
@@ -9,7 +14,7 @@ def calc_method_one(k: float, g: float) -> tuple[float, float]:
     return torch_length, torch_width
 
 
-def calc_method_two(k: float, g: float) -> tuple[float, float]:
+def calc_method_two(k: T, g: T) -> tuple[T, T]:
     """
     Как называется этот метод?
 
@@ -21,12 +26,12 @@ def calc_method_two(k: float, g: float) -> tuple[float, float]:
 if __name__ == "__main__":
     K = (12.5, 13.5, 15)
     g_input = int(input())
+    
     for i in range(3):
         Lf, Df = calc_method_one(K[i], g_input)
         print(f"1-ый метод:\nLf = {Lf:.5}, Df = {Df:.5}\n")
         Lf, Df = calc_method_two(K[i], g_input)
         print(f"2-ой метод:\nLf = {Lf:.5}, Df = {Df:.5}\n")
-
 
 
 """def calculate(k, g):
