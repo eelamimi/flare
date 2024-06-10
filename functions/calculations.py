@@ -26,8 +26,8 @@ def calc_method_one(k: T, d: T) -> tuple[T, T]:
 
     :rtype: tuple[float, float]
     """
-    Ap = PI * ((d - 2 * 0.006) ** 2) / 4
-    g = ((PH * Ap * K ** 0.5) / (R * Z * TH) ** 0.5) * (2 / (K - 1)) ** ((k + 1) / (2* (k - 1)))
+    Ap = PI * (((d - 2 * 6) / 1000) ** 2) / 4
+    g = ((PH * Ap * K ** 0.5) / (R * Z * (TH + 273)) ** 0.5) * (2 / (K + 1)) ** ((k + 1) / (2* (k - 1)))
 
     torch_length = k * g**0.4
     torch_width = 0.15 * torch_length
@@ -59,7 +59,7 @@ def calculate_all(k: T, g: T, pv: T) -> tuple[tuple[float, float], tuple[float, 
 
 if __name__ == "__main__":
     K = (12.5, 13.5, 15)
-    D = (0.025, 0.05, 0.1, 0.426)
+    D = (25, 50, 100, 426)
     pv_input = int(input())
 
     for i in range(3):
