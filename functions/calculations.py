@@ -9,7 +9,7 @@ U = 0.8
 A = 0.134614104
 RoV = 1
 
-""" Ap = PI * (d - 2 * 0.006) """ 
+""" Ap = PI * ((d - 2 * 0.006) ** 2) / 4 """ 
 """ g = ((PH * Ap * K ** 0.5) / (R * Z * TH) ** 0.5) * (2 / (K - 1)) ** ((k + 1) / (2* (k - 1))) """
 
 PH = 7500000
@@ -26,7 +26,7 @@ def calc_method_one(k: T, d: T) -> tuple[T, T]:
 
     :rtype: tuple[float, float]
     """
-    Ap = PI * (d - 2 * 0.006)
+    Ap = PI * ((d - 2 * 0.006) ** 2) / 4
     g = ((PH * Ap * K ** 0.5) / (R * Z * TH) ** 0.5) * (2 / (K - 1)) ** ((k + 1) / (2* (k - 1)))
 
     torch_length = k * g**0.4
